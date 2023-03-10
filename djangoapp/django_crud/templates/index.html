@@ -1,0 +1,36 @@
+[Home]
+<br>
+
+Basic Django CRUD APP
+
+<br>    
+<a style="text-align:center; margin: 0 auto;" href="/crud">Upload Posts</a>
+<hr>
+
+
+<h3>All Posts</h3>
+
+
+<!-- {% if posts %}
+    {% for row in posts %}
+    <p>{{ row.post }}</p>
+    <br>    
+    {% endfor %}
+
+    {% else %}
+
+    <p>No posts uploaded.</p>
+{% endif %} -->
+
+{% if posts %}
+    <ul>
+        {% for post in posts %}
+        
+            <li>{{ post.1 }} <a href="{% url 'delete_post' post_id=post.0 %}">[Delete]</a> | 
+            <a href="{%url 'update' post_id=post.0 }">[Update]</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts uploaded.</p>
+{% endif %}
